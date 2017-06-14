@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sam's Resume</title>
+
+<style>
+	html {
+    padding: 5px;
+    margins: 5px;
+    }
+    
+    body {
+    background-color: #FFFFFF;
+    font-family: Garamond, sans-serif;
+    max-width: 100%;
+    }
+    
+    #sidebar {
+    width: 30%;
+    float: left;
+    height: 300px;
+    background-color: #ff9933;
+   	color: #fff;
+    text-align: center;
+    margin-top: 50px;
+    padding: 5px; 
+    font-size: 15px;
+    margin: 10px;
+    position: relative;
+      }
+      
+    #header {
+    background-color: #3399ff;
+    height: 100px;
+    color: #fff;
+    text-align: right;
+    width: 100%;
+    margin: 10px;
+    }
+    
+    .sectiontitle {
+    font-size: 20px;
+    color: #3399ff;
+    text-align: center;
+    font-weight: bold;
+    }
+    
+    .content {
+    color: #000000;
+    margin: 10px;
+    }
+    
+    .employer {
+    font-size: 18px;
+    font-weight: bold;
+    }
+    
+    .maincontent {
+    left-margin: 5px;
+    }
+    
+    .roletitle {
+    font-size: 18px;
+    }
+    
+    .roledescription {
+    font-size: 16px;
+    }
+    
+    ul {
+    text-align: left;
+    list-style: none
+    }
+    
+    a {
+    color: #fff;
+    }
+
+      
+    
+</style>
+
+</head>
+
+
+<body>
+	
+    <div id= "header">
+    	<div class = "name">
+            <img src="http://orig05.deviantart.net/aecc/f/2017/165/f/6/headerresume_by_hopelesslavender-dbcpecc.png" alt="Samantha Martorana Resume">
+        <div class = "personaldescription">
+    	</div>
+     
+    <div id= "sidebar">
+    	<div class = "contactinfo">
+        	<span class = "wordemail"><br> <b>Email:</b><br> </span>
+        	<span class = "email"> <a 	href="mailto:samanthamartorana7@gmail.com">samanthamartorana7@gmail.com</a></span>
+            <hr>
+		<span class = "addressword"><b>Address:</b><br></span>
+        	<span class = "address">910 Winding Way <br> Middleton, WI <br> 53562 </div>
+            <hr>
+	    <span class = "phoneword"><b>Cell:</b><br></span>
+            <span class = "phone">(973)-738-4199</span>
+            <hr>
+            <span class = "websitetitle"><b>Website:</b><br></span>
+            <span class = "website"><a href ="https://www.sammartoranaart.com">
+            SamMartoranaArt.com </a> <hr></span> 
+            <span class = "linkdin"><a href ="https://www.linkedin.com/in/samantha-martorana-9a1784105">Linkedin <br></a>
+    	</div>
+       </div>
+      </div>
+     </div>
+    
+    <div id= "maincontent">
+    	<div class = "content">
+        	<div class = "sectiontitle">Education</div>
+            <hr>
+
+            <div class = "employer">Saint Olaf College (2013-17)</div>
+            <div class = "roletitle">Studio Art and Psychology double major <br> Northfield, MN</div>
+            </div>
+            <div class = "employer">Milwaukee Institute of Art and Design (Summer 2012)</div>
+            <div class = "roletitle">Animation and Time-Based Media Precollege <br> Milwaukee, WI<br> <br></div>
+            </div>
+
+            
+            <div class = "employer">Lancaster University (Spring/Summer 2016)</div>
+            <div class = "roletitle">Study Abroad for Two Terms <br> Lancaster, UK <br> <br> <br> <br> <br></div>
+            </div>
+            
+
+
+           <div class = "sectiontitle">Work Experience</div>
+            <hr>
+            <div class = "employer">Saint Olaf College Center for Multicultural and International Engagement</div>
+            <div class = "roletitle">Program Assistant
+            </div>
+            <div class = "roledescription"><ul><b>Fall 2016- Spring 2017</b><ul>
+            <li>Organized monthly events to enrich the cultural diversity of and raise awareness for issues that affect students at St. Olaf.</li>
+            <li>Encouraged interaction and awareness between international and/or multicultural students and the relatively homogenous domestic student body in an effort to foster an environment of inclusivity on campus.</li>
+            </ul>
+            </div>
+            
+            <div class = "employer">Studio You, Paint it Pottery
+            </div>
+            <div class = "roletitle">Studio Manager
+            </div>
+            <div class = "roledescription"><ul><b>2014-2017</b><ul>
+            <li>Hosted birthday parties and assisted patrons with their ceramic art projects.</li>
+            <li>Gained experience with both billing and invoicing.</li> 
+            <li>Currently re-designing website using Wix.com.</li>
+            </ul>
+            </div>
+            
+            
+            <div class = "employer">Committee Films</div>
+            <div class = "roletitle">Commercial, Production, and Social Media Intern
+            </div>
+            <div class = "roledescription"><ul><b>Summer 2016</b><ul>
+            <li>Developed skills in working with MailChimp and Hootsuite by creating copy and design for the newsletter and daily social media postings, as well as factoid tweets for various TV episodes.</li>
+            <li>Gained valuable experience working on set during filming while working as a Production Assistant.</li> 
+            </ul>
+            </div>
+            
+            <div class = "employer">Crescent Cove
+            </div>
+            <div class = "roletitle">Social Media and Communications Intern
+            </div>
+            <div class = "roledescription"><ul><b>2016-2017</b><ul>
+            <li>Managed daily postings to social media as well as newsletter.</li>
+            <li>Produced the copy for the monthly newsletter in Constant Contact.</li> 
+            </ul>
+            </div>
+            
+            <div class = "employer">Door Pottery
+            </div>
+            <div class = "roletitle">Office Assistant and Pottery Apprentice
+            </div>
+            <div class = "roledescription"><ul><b>Summer 2015</b><ul>
+            <li>Posted and advertised pieces on Ebay and Etsy site.</li>
+            <li>Marketed to and connected with customers via social networking platforms.</li>
+            <li>Performed Office Assistant duties such as organization, shipping, planning, filing paperwork, and answering of phones.</li>
+            </ul>
+            </div>
+            
+            <div class = "sectiontitle"><b>Community Service</b>
+            </div>
+            <hr>
+            <div class = "employer">Attic Angel Place</div>
+            <div class = "roletitle">Art Studio Assistant and Assistant to Activity Coordinator
+            </div>
+            <div class = "roledescription"><ul><b>2009-2015</b><ul>
+            <li>Assisted in coordinating activities and provided supervision and instruction to residents in the art studio. Oversaw resident-led projects and designed structured outlets of creativity for memory care patients.</li>
+            </ul>
+            </div>
+            
+            <div class = "employer">Henry Vilas Zoo</div>
+            <div class = "roletitle">Wish Dragons Project
+            </div>
+            <div class = "roledescription"><ul><b>2009</b><ul>
+            <li>Created, marketed, and sold clay dragon figurines in support of the Henry Vilas Zoo.</li>
+            </ul>
+            </div>
+         
+            <div class = "sectiontitle">Skills
+            </div>
+            <hr>
+            <div class = "employer">Proficient</div>
+            <div class = "roletitle">
+            </div>
+            <div class = "roledescription"><ul>
+            <li>Entrepreneurship, Adobe Photoshop (both CS and CC), Adobe Illustrator (CS and CC), Adobe Indesign (CS and CC), Constant Contact, Mailchimp, Hootsuite, Microsoft Office Suite, wix.com, Wordpress, Ebay, and writing copy.</li>
+            
+            </ul>
+            </div>
+            
+            <div class = "employer">Experienced</div>
+            <div class = "roletitle">
+            </div>
+            <div class = "roledescription"><ul>
+            <li>SPSS, CSS, HTML5, Python, Final Cut Pro, Adobe After Effects CS6, Adobe Flash CS6,  various languages (including Spanish, Japanese, and Bosnian/Serbian/Croatian).</li>
+            </div>
+            
+            <div class = "employer">Other Skills</div>
+            <div class = "roletitle">
+            </div>
+            <div class = "roledescription"><ul>
+            <li>Fast learner, always eager and willing to learn new things, and strong work ethic.
+</li>
+            
+            </ul>
+            </div>
+           </div>
+          </div>
+       	</div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
+</body>
+</html>
