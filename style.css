@@ -1,0 +1,72 @@
+    html {
+    padding: 5px;
+    margins: 5px;
+    }
+    
+    body {
+    background-color: #FFFFFF;
+    font-family: Garamond, sans-serif;
+    max-width: 100%;
+    }
+    
+    #sidebar {
+    width: 30%;
+    float: left;
+    height: 300px;
+    background-color: #ff9933;
+   	color: #fff;
+    text-align: center;
+    margin-top: 50px;
+    padding: 5px; 
+    font-size: 15px;
+    margin: 10px;
+    position: relative;
+      }
+      
+    #header {
+    background-color: #3399ff;
+    height: 100px;
+    color: #fff;
+    text-align: right;
+    width: 100%;
+    margin: 10px;
+    }
+    
+    .sectiontitle {
+    font-size: 20px;
+    color: #3399ff;
+    text-align: center;
+    font-weight: bold;
+    }
+    
+    .content {
+    color: #000000;
+    margin: 10px;
+    }
+    
+    .employer {
+    font-size: 18px;
+    font-weight: bold;
+    }
+    
+    .maincontent {
+    left-margin: 5px;
+    }
+    
+    .roletitle {
+    font-size: 18px;
+    }
+    
+    .roledescription {
+    font-size: 16px;
+    }
+    
+    ul {
+    text-align: left;
+    list-style: none
+    }
+    
+    a {
+    color: #fff;
+    }
+      
