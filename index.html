@@ -1,169 +1,1104 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Sam's Resume</title>
-<link rel="stylesheet" href="style.css"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sam Martorana — Software Engineer</title>
+  <meta name="description" content="Sam Martorana — software engineer focused on C#, .NET, C++, systems design, APIs, performance-minded tooling, and game technology." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
 
+    :root {
+      --bg: #0b0d14;
+      --bg-2: #121722;
+      --panel: rgba(22, 26, 36, 0.92);
+      --panel-strong: rgba(27, 32, 44, 0.98);
+      --panel-soft: rgba(255,255,255,0.035);
+      --text: #f3f5f8;
+      --muted: #a1a9bb;
+      --muted-2: #70798d;
+      --accent: #7ff7c2;
+      --accent-2: #91b2ff;
+      --accent-soft: rgba(127, 247, 194, 0.12);
+      --line: rgba(255,255,255,0.08);
+      --shadow: 0 22px 60px rgba(0,0,0,0.42);
+      --radius: 0px;
+      --bevel: 18px;
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --mono: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--sans);
+      color: var(--text);
+      background:
+        radial-gradient(circle at top right, rgba(145,178,255,0.10), transparent 28%),
+        radial-gradient(circle at top left, rgba(127,247,194,0.08), transparent 22%),
+        linear-gradient(180deg, #171c28 0%, #0b0d14 100%);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,0.025) 0, rgba(255,255,255,0.025) 1px, transparent 1px, transparent 25%),
+        linear-gradient(180deg, rgba(255,255,255,0.02) 0, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 25%);
+      background-size: 300px 300px;
+      mask-image: linear-gradient(180deg, rgba(255,255,255,0.65), rgba(255,255,255,0.2));
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .site {
+      width: min(1440px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0 72px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 16px 20px;
+      margin-bottom: 22px;
+      background: rgba(12, 15, 24, 0.5);
+      border: 1px solid var(--line);
+      backdrop-filter: blur(12px);
+      border-radius: 0;
+      position: sticky;
+      top: 18px;
+      z-index: 10;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .brand strong {
+      font-family: var(--mono);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .brand span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .topnav {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .topnav a {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .topnav a:hover,
+    .topnav a:focus-visible {
+      color: var(--accent);
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .button,
+    .button-secondary {
+      min-height: 42px;
+      padding: 0 16px;
+      border-radius: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      transition: transform 160ms ease, opacity 160ms ease, background 160ms ease;
+    }
+
+    .button {
+      background: linear-gradient(90deg, rgba(127,247,194,0.28), rgba(127,247,194,0.12));
+      color: var(--accent);
+      border: 1px solid rgba(127,247,194,0.22);
+    }
+
+    .button-secondary {
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+      border: 1px solid var(--line);
+    }
+
+    .button:hover,
+    .button-secondary:hover {
+      transform: translateY(-1px);
+      opacity: 0.96;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(300px, 0.9fr);
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .panel {
+      background: linear-gradient(180deg, rgba(28,33,45,0.96), rgba(18,22,31,0.98));
+      border: 1px solid var(--line);
+      border-radius: 0;
+      clip-path: polygon(var(--bevel) 0, 100% 0, 100% calc(100% - var(--bevel)), calc(100% - var(--bevel)) 100%, 0 100%, 0 var(--bevel));
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .panel::before,
+    .featured-card::before,
+    .project-card::before,
+    .timeline-item::before,
+    .sidebar-block::before,
+    .stat::before,
+    .metric::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(145,178,255,0.32), transparent);
+      pointer-events: none;
+    }
+
+    .hero-main {
+      padding: 34px;
+      position: relative;
+    }
+
+    .eyebrow,
+    .section-label,
+    .meta,
+    .mini,
+    .tag,
+    .timeline-year,
+    .card-kicker {
+      font-family: var(--mono);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 30px;
+      padding: 0 12px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      border-radius: 0;
+      clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+      font-size: 10px;
+      margin-bottom: 22px;
+    }
+
+    h1, h2, h3, p { margin: 0; }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(260px, 0.9fr);
+      gap: 26px;
+      align-items: start;
+    }
+
+    .hero-copy h1 {
+      font-family: var(--mono);
+      font-size: clamp(40px, 6vw, 72px);
+      font-weight: 500;
+      line-height: 0.98;
+      letter-spacing: -0.05em;
+      max-width: 9ch;
+      margin-bottom: 16px;
+    }
+
+    .hero-copy .lead {
+      color: var(--text);
+      font-size: 20px;
+      line-height: 1.45;
+      margin-bottom: 16px;
+      max-width: 32ch;
+    }
+
+    .hero-copy .support {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.8;
+      max-width: 65ch;
+    }
+
+    .hero-visual {
+      min-height: 320px;
+      border-radius: 0;
+      background:
+        radial-gradient(circle at 68% 28%, rgba(145,178,255,0.16), transparent 18%),
+        radial-gradient(circle at 30% 75%, rgba(127,247,194,0.13), transparent 20%),
+        linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.06);
+      position: relative;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .hero-visual .burst {
+      font-size: 130px;
+      line-height: 1;
+      text-align: center;
+      filter: drop-shadow(0 22px 20px rgba(0,0,0,0.35));
+      margin-top: 10px;
+    }
+
+    .orbit-labels {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .orbit {
+      background: rgba(11,14,22,0.9);
+      border: 1px solid rgba(255,255,255,0.06);
+      color: var(--accent);
+      min-height: 44px;
+      padding: 0 14px;
+      border-radius: 0;
+      display: inline-flex;
+      align-items: center;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .stat {
+      padding: 18px;
+      border-radius: 0;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .stat strong {
+      display: block;
+      font-family: var(--mono);
+      font-size: 28px;
+      font-weight: 500;
+      letter-spacing: -0.04em;
+      margin-bottom: 4px;
+    }
+
+    .stat span {
+      display: block;
+      color: var(--muted-2);
+      font-size: 11px;
+      line-height: 1.55;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-family: var(--mono);
+    }
+
+    .hero-sidebar {
+      padding: 28px;
+      display: grid;
+      gap: 16px;
+      align-content: start;
+    }
+
+    .sidebar-block {
+      padding: 18px;
+      border-radius: 0;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .section-label {
+      display: block;
+      color: var(--muted-2);
+      font-size: 10px;
+      margin-bottom: 10px;
+    }
+
+    .sidebar-block h2,
+    .sidebar-block h3 {
+      font-family: var(--mono);
+      font-size: 20px;
+      font-weight: 500;
+      letter-spacing: -0.03em;
+      margin-bottom: 8px;
+    }
+
+    .sidebar-block p,
+    .sidebar-block li {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .sidebar-block ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .chip-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      font-size: 10px;
+      color: var(--muted);
+      padding: 8px 10px;
+      border-radius: 0;
+      clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .section {
+      padding: 28px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 22px;
+    }
+
+    .section-header h2 {
+      font-family: var(--mono);
+      font-size: clamp(24px, 3vw, 40px);
+      font-weight: 500;
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+
+    .section-header p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
+      max-width: 42ch;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 16px;
+    }
+
+    .timeline-item {
+      padding: 18px 18px 18px 20px;
+      border-radius: 0;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.05);
+      display: grid;
+      grid-template-columns: 120px minmax(0, 1fr);
+      gap: 16px;
+      align-items: start;
+    }
+
+    .timeline-year {
+      color: var(--accent);
+      font-size: 11px;
+      padding-top: 2px;
+    }
+
+    .timeline-item h3 {
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+
+    .timeline-item .meta {
+      color: var(--muted-2);
+      font-size: 10px;
+      margin-bottom: 8px;
+    }
+
+    .timeline-item p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.75;
+    }
+
+    .featured-grid,
+    .project-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .featured-card,
+    .project-card {
+      padding: 22px;
+      border-radius: 0;
+      background: linear-gradient(180deg, rgba(39,45,60,0.92), rgba(22,26,36,0.96));
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+    }
+
+    .featured-card:hover,
+    .project-card:hover {
+      transform: none;
+      box-shadow: 0 26px 58px rgba(0,0,0,0.38);
+      border-color: rgba(127,247,194,0.18);
+    }
+
+    .featured-card {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(220px, 0.75fr);
+      gap: 20px;
+      min-height: 260px;
+    }
+
+    .card-kicker {
+      color: var(--accent);
+      font-size: 10px;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .featured-card h3,
+    .project-card h3 {
+      font-family: var(--mono);
+      font-size: clamp(24px, 3vw, 34px);
+      font-weight: 500;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .featured-card p,
+    .project-card p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .card-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .pill-link {
+      min-height: 38px;
+      padding: 0 14px;
+      border-radius: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.06);
+      color: var(--text);
+      font-family: var(--mono);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .pill-link.primary {
+      color: var(--accent);
+      background: linear-gradient(90deg, rgba(127,247,194,0.20), rgba(127,247,194,0.08));
+      border-color: rgba(127,247,194,0.18);
+    }
+
+    .metric-stack {
+      display: grid;
+      gap: 12px;
+    }
+
+    .metric {
+      padding: 14px 16px;
+      border-radius: 0;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .metric strong {
+      display: block;
+      font-family: var(--mono);
+      font-size: 20px;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .metric span {
+      color: var(--muted-2);
+      font-size: 11px;
+      line-height: 1.5;
+      font-family: var(--mono);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .project-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .project-card {
+      min-height: 230px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .project-card .mini {
+      color: var(--muted-2);
+      font-size: 10px;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .project-card .chip-row {
+      margin-top: 14px;
+    }
+
+    .footer {
+      padding: 20px 8px 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+
+    .panel,
+    .featured-card,
+    .project-card,
+    .stat,
+    .sidebar-block,
+    .timeline-item,
+    .metric,
+    .hero-visual,
+    .button,
+    .button-secondary,
+    .pill-link,
+    .eyebrow,
+    .orbit,
+    .tag,
+    .topbar {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .panel::before,
+    .featured-card::before,
+    .project-card::before,
+    .stat::before,
+    .sidebar-block::before,
+    .timeline-item::before,
+    .metric::before,
+    .hero-visual::before,
+    .topbar::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(145,178,255,0.28), transparent);
+      pointer-events: none;
+    }
+
+    @media (max-width: 1180px) {
+      .hero,
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 820px) {
+      .topbar {
+        border-radius: 28px;
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .hero-main,
+      .hero-sidebar,
+      .section {
+        padding: 20px;
+      }
+
+      .hero-grid,
+      .featured-card {
+        grid-template-columns: 1fr;
+      }
+
+      .stats,
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+      }
+
+      .card,
+      .panel,
+      .hero,
+      .project-card,
+      button,
+      a,
+      .cta,
+      section,
+      article,
+      aside,
+      header,
+      footer {
+        border-radius: 0 !important;
+      }
+
+    }
+  </style>
 </head>
-
-
 <body>
-	
-    <div id= "header">
-    	<div class = "name">
-            <img src="http://orig05.deviantart.net/aecc/f/2017/165/f/6/headerresume_by_hopelesslavender-dbcpecc.png" alt="Samantha Martorana Resume">
-        <div class = "personaldescription">
-    	</div>
-     
-    <div id= "sidebar">
-    	<div class = "contactinfo">
-        	<span class = "wordemail"><br> <b>Email:</b><br> </span>
-        	<span class = "email"> <a 	href="mailto:samanthamartorana7@gmail.com">samanthamartorana7@gmail.com</a></span>
-            <hr>
-		<span class = "addressword"><b>Address:</b><br></span>
-        	<span class = "address">910 Winding Way <br> Middleton, WI <br> 53562 </div>
-            <hr>
-	    <span class = "phoneword"><b>Cell:</b><br></span>
-            <span class = "phone">(973)-738-4199</span>
-            <hr>
-            <span class = "websitetitle"><b>Website:</b><br></span>
-            <span class = "website"><a href ="https://www.sammartoranaart.com">
-            SamMartoranaArt.com </a> <hr></span> 
-            <span class = "linkdin"><a href ="https://www.linkedin.com/in/samantha-martorana-9a1784105">Linkedin <br></a>
-    	</div>
-       </div>
+  <div class="site">
+    <header class="topbar">
+      <div class="brand">
+        <strong>Sam Martorana — Software Engineer</strong>
+        <span>C#, .NET, C++, systems design, APIs, game technology</span>
       </div>
-     </div>
-    
-    <div id= "maincontent">
-    	<div class = "content">
-        	<div class = "sectiontitle">Education</div>
-            <hr>
 
-            <div class = "employer">Saint Olaf College (2013-17)</div>
-            <div class = "roletitle">Studio Art and Psychology double major <br> Northfield, MN</div>
-            </div>
-            <div class = "employer">Milwaukee Institute of Art and Design (Summer 2012)</div>
-            <div class = "roletitle">Animation and Time-Based Media Precollege <br> Milwaukee, WI<br> <br></div>
-            </div>
+      <nav class="topnav" aria-label="Primary">
+        <a href="#experience">Experience</a>
+        <a href="#featured">Featured Work</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Links</a>
+      </nav>
 
-            
-            <div class = "employer">Lancaster University (Spring/Summer 2016)</div>
-            <div class = "roletitle">Study Abroad for Two Terms <br> Lancaster, UK <br> <br> <br> <br> <br></div>
-            </div>
-            
+      <div class="cta-row">
+        <a class="button" href="https://github.com/carnationcrab" target="_blank" rel="noreferrer">GitHub</a>
+        <a class="button-secondary" href="#projects">Project Index</a>
+      </div>
+    </header>
 
+    <section class="hero">
+      <article class="panel hero-main">
+        <span class="eyebrow">Software Engineer / Systems + Product-minded Builder</span>
 
-           <div class = "sectiontitle">Work Experience</div>
-            <hr>
-            <div class = "employer">Saint Olaf College Center for Multicultural and International Engagement</div>
-            <div class = "roletitle">Program Assistant
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <h1>Sam Martorana</h1>
+            <p class="lead">Software engineer specializing in C#, .NET, C++, systems architecture, APIs, and performance-minded interactive software.</p>
+            <p class="support">I build production business software, independent engine work, gameplay systems, mod tooling, and technical teaching artifacts. My strongest signal is not just breadth — it is shipping across very different environments: enterprise platforms, browser games, educational reference projects, and low-level C++ engine foundations.</p>
+            <div class="card-actions">
+              <a class="pill-link primary" href="https://github.com/carnationcrab" target="_blank" rel="noreferrer">View GitHub</a>
+              <a class="pill-link" href="#featured">See featured work</a>
             </div>
-            <div class = "roledescription"><ul><b>Fall 2016- Spring 2017</b><ul>
-            <li>Organized monthly events to enrich the cultural diversity of and raise awareness for issues that affect students at St. Olaf.</li>
-            <li>Encouraged interaction and awareness between international and/or multicultural students and the relatively homogenous domestic student body in an effort to foster an environment of inclusivity on campus.</li>
-            </ul>
-            </div>
-            
-            <div class = "employer">Studio You, Paint it Pottery
-            </div>
-            <div class = "roletitle">Studio Manager
-            </div>
-            <div class = "roledescription"><ul><b>2014-2017</b><ul>
-            <li>Hosted birthday parties and assisted patrons with their ceramic art projects.</li>
-            <li>Gained experience with both billing and invoicing.</li> 
-            <li>Currently re-designing website using Wix.com.</li>
-            </ul>
-            </div>
-            
-            
-            <div class = "employer">Committee Films</div>
-            <div class = "roletitle">Commercial, Production, and Social Media Intern
-            </div>
-            <div class = "roledescription"><ul><b>Summer 2016</b><ul>
-            <li>Developed skills in working with MailChimp and Hootsuite by creating copy and design for the newsletter and daily social media postings, as well as factoid tweets for various TV episodes.</li>
-            <li>Gained valuable experience working on set during filming while working as a Production Assistant.</li> 
-            </ul>
-            </div>
-            
-            <div class = "employer">Crescent Cove
-            </div>
-            <div class = "roletitle">Social Media and Communications Intern
-            </div>
-            <div class = "roledescription"><ul><b>2016-2017</b><ul>
-            <li>Managed daily postings to social media as well as newsletter.</li>
-            <li>Produced the copy for the monthly newsletter in Constant Contact.</li> 
-            </ul>
-            </div>
-            
-            <div class = "employer">Door Pottery
-            </div>
-            <div class = "roletitle">Office Assistant and Pottery Apprentice
-            </div>
-            <div class = "roledescription"><ul><b>Summer 2015</b><ul>
-            <li>Posted and advertised pieces on Ebay and Etsy site.</li>
-            <li>Marketed to and connected with customers via social networking platforms.</li>
-            <li>Performed Office Assistant duties such as organization, shipping, planning, filing paperwork, and answering of phones.</li>
-            </ul>
-            </div>
-            
-            <div class = "sectiontitle"><b>Community Service</b>
-            </div>
-            <hr>
-            <div class = "employer">Attic Angel Place</div>
-            <div class = "roletitle">Art Studio Assistant and Assistant to Activity Coordinator
-            </div>
-            <div class = "roledescription"><ul><b>2009-2015</b><ul>
-            <li>Assisted in coordinating activities and provided supervision and instruction to residents in the art studio. Oversaw resident-led projects and designed structured outlets of creativity for memory care patients.</li>
-            </ul>
-            </div>
-            
-            <div class = "employer">Henry Vilas Zoo</div>
-            <div class = "roletitle">Wish Dragons Project
-            </div>
-            <div class = "roledescription"><ul><b>2009</b><ul>
-            <li>Created, marketed, and sold clay dragon figurines in support of the Henry Vilas Zoo.</li>
-            </ul>
-            </div>
-         
-            <div class = "sectiontitle">Skills
-            </div>
-            <hr>
-            <div class = "employer">Proficient</div>
-            <div class = "roletitle">
-            </div>
-            <div class = "roledescription"><ul>
-            <li>Entrepreneurship, Adobe Photoshop (both CS and CC), Adobe Illustrator (CS and CC), Adobe Indesign (CS and CC), Constant Contact, Mailchimp, Hootsuite, Microsoft Office Suite, wix.com, Wordpress, Ebay, and writing copy.</li>
-            
-            </ul>
-            </div>
-            
-            <div class = "employer">Experienced</div>
-            <div class = "roletitle">
-            </div>
-            <div class = "roledescription"><ul>
-            <li>SPSS, CSS, HTML5, Python, Final Cut Pro, Adobe After Effects CS6, Adobe Flash CS6,  various languages (including Spanish, Japanese, and Bosnian/Serbian/Croatian).</li>
-            </div>
-            
-            <div class = "employer">Other Skills</div>
-            <div class = "roletitle">
-            </div>
-            <div class = "roledescription"><ul>
-            <li>Fast learner, always eager and willing to learn new things, and strong work ethic.
-</li>
-            
-            </ul>
-            </div>
-           </div>
           </div>
-       	</div>
-       </div>
+
+          <div class="hero-visual" aria-hidden="true">
+            <div class="orbit-labels">
+              <span class="orbit">C# / .NET</span>
+              <span class="orbit">C++ / Systems</span>
+            </div>
+            <div class="burst">✦</div>
+            <div class="orbit-labels">
+              <span class="orbit">APIs / SQL</span>
+              <span class="orbit">Games / Tools</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="stats" aria-label="career summary">
+          <div class="stat">
+            <strong>6+ yrs</strong>
+            <span>professional software engineering</span>
+          </div>
+          <div class="stat">
+            <strong>Some</strong>
+            <span>public repositories on GitHub</span>
+          </div>
+          <div class="stat">
+            <strong>C#, .NET, C++</strong>
+            <span>core stack across enterprise and systems work</span>
+          </div>
+          <div class="stat">
+            <strong>Published stuff</strong>
+            <span>deployed browser games, modding, production APIs</span>
+          </div>
+        </div>
+      </article>
+
+      <aside class="panel hero-sidebar">
+        <section class="sidebar-block">
+          <span class="section-label">What I'm trying to practice</span>
+          <h2>SOLID Principles</h2>
+          <p>Clear architecture, maintainable code, practical delivery, and projects that show how I think.</p>
+        </section>
+
+        <section class="sidebar-block">
+          <span class="section-label">Core strengths</span>
+          <div class="chip-row">
+            <span class="tag">C#</span>
+            <span class="tag">ASP.NET</span>
+            <span class="tag">SQL</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">React</span>
+            <span class="tag">C++</span>
+            <span class="tag">Assembly</span>
+            <span class="tag">Azure DevOps</span>
+            <span class="tag">Game systems</span>
+          </div>
+        </section>
+
+      </aside>
+    </section>
+
+    <section class="content-grid">
+      <article class="panel section" id="experience">
+        <div class="section-header">
+          <div>
+            <span class="section-label">Professional experience</span>
+            <h2>Career history</h2>
+          </div>
+          <p>Work across enterprise platforms, consulting, instruction, and shipped software. The thread running through it is systems thinking, practical delivery, and clear technical communication.</p>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-year">Recent</div>
+            <div>
+              <h3>Software engineering work</h3>
+              <div class="meta">Augeo</div>
+              <p>Enterprise .NET development, architecture-minded feature work, APIs, and maintainable platform code in production business environments.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-year">Teaching + consulting</div>
+            <div>
+              <h3>Full Stack Development Instructor / Consultant</h3>
+              <div class="meta">Prime Digital Academy · Logisolve · Object Partners</div>
+              <p>Worked across client delivery, engineering consulting, and technical teaching. This adds a strong communication layer on top of implementation skills: explaining systems, creating reference material, and helping others reason about code.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-year">Production platforms</div>
+            <div>
+              <h3>Software developer across healthcare, finance, and enterprise domains</h3>
+              <div class="meta">ConnectiveRx · Tyson Foods · Securian Financial</div>
+              <p>Built software in structured business contexts where delivery quality, maintainability, and correctness matter more than flashy demos.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="panel section">
+        <div class="section-header">
+          <div>
+            <span class="section-label">Working style</span>
+            <h2>How I approach software</h2>
+          </div>
+          <p>I care about software that stays understandable under pressure: clear interfaces, deliberate ownership, maintainable systems, and projects that are concrete enough to inspect rather than merely describe.</p>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-year">01</div>
+            <div>
+              <h3>Goodish Code first</h3>
+              <p>I bias toward structure first: define the problem, establish the boundaries, and make the implementation legible before layering on convenience.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-year">02</div>
+            <div>
+              <h3>Open source</h3>
+              <p>I like public projects that can be opened, played, or read directly. A runnable build or a visible codebase says more than a polished summary.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-year">03</div>
+            <div>
+              <h3>Learning is doing</h3>
+              <p>I move comfortably between backend work, games, tooling, and teaching projects, but the goal is the same in each case: solve the problem cleanly and leave the system clearer than I found it.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="panel section" id="featured" style="margin-bottom: 24px;">
+      <div class="section-header">
+        <div>
+          <span class="section-label">Featured engineering work</span>
+          <h2>Featured projects</h2>
+        </div>
+        <p>A few representative projects that show the kinds of systems, tools, and interactive software I like to build.</p>
       </div>
-     </div>
-    </div>
-   </div>
+
+      <div class="featured-grid">
+        <article class="featured-card">
+          <div>
+            <span class="card-kicker">Featured project</span>
+            <h3>Spindle</h3>
+            <p>A long-horizon C++ engine project built around runtime structure rather than visual demo polish. Spindle focuses on the foundations that make larger systems hold together: math primitives, subsystem lifecycle, custom allocators and containers, virtual file system and resource flow, and a disciplined frame loop. It is where I explore engine architecture, low-level tradeoffs, and the kind of systems work that rewards careful design over quick spectacle.</p>
+            <div class="chip-row">
+              <span class="tag">C++</span>
+              <span class="tag">Lua</span>
+              <span class="tag">Premake</span>
+              <span class="tag">Memory systems</span>
+              <span class="tag">Math library</span>
+              <span class="tag">Engine architecture</span>
+              <span class="tag">VFS / resources</span>
+            </div>
+            <div class="card-actions">
+              <a class="pill-link primary" href="https://github.com/carnationcrab/Spindle" target="_blank" rel="noreferrer">Open repo</a>
+              <a class="pill-link" href="https://carnationcrab.github.io/Spindle/" target="_blank" rel="noreferrer">More info</a>
+            </div>
+          </div>
+          <div class="metric-stack">
+            <div class="metric">
+              <strong>Long running project</strong>
+              <span>Sustained iterative development with architectural evolution</span>
+            </div>
+            <div class="metric">
+              <strong>97.7% C++</strong>
+              <span>Low-level engine systems and core runtime implementation</span>
+            </div>
+            <div class="metric">
+              <strong>Core systems</strong>
+              <span>Allocators, subsystems, VFS, resources, engine loop</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="featured-card">
+          <div>
+            <span class="card-kicker">Live game / deployed work / commission</span>
+            <h3>Nova Roll</h3>
+            <p>A browser-deployed 3D marble game built around procedural courses, responsive movement, and readable moment-to-moment play. It shows my interest in turning technical ideas into something immediate, tactile, and publicly accessible.</p>
+            <div class="chip-row">
+              <span class="tag">JavaScript</span>
+              <span class="tag">Browser game</span>
+              <span class="tag">Procedural generation</span>
+              <span class="tag">Interactive systems</span>
+            </div>
+            <div class="card-actions">
+              <a class="pill-link primary" href="https://carnationcrab.github.io/nova_roll/" target="_blank" rel="noreferrer">Play deployed version</a>
+              <a class="pill-link" href="https://github.com/carnationcrab/nova_roll" target="_blank" rel="noreferrer">View source</a>
+            </div>
+          </div>
+          <div class="metric-stack">
+            <div class="metric">
+              <strong>Live</strong>
+              <span>Playable without setup</span>
+            </div>
+            <div class="metric">
+              <strong>Gameplay systems</strong>
+              <span>Movement, course flow, browser deployment</span>
+            </div>
+            <div class="metric">
+              <strong>3D as 2D, in the CPU</strong>
+              <span>No matter the constraints.</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="featured-card">
+          <div>
+            <span class="card-kicker">Live game / deployed work / commission</span>
+            <h3>Last Light</h3>
+            <p>A browser survival puzzle project focused on atmosphere, game-state logic, and pacing. Smaller in scope than Nova Roll, but useful as a second finished piece with a different feel and a complete public build.</p>
+            <div class="chip-row">
+              <span class="tag">HTML</span>
+              <span class="tag">Browser game</span>
+              <span class="tag">Puzzle systems</span>
+              <span class="tag">Lightweight deployment</span>
+            </div>
+            <div class="card-actions">
+              <a class="pill-link primary" href="https://carnationcrab.github.io/last_light/" target="_blank" rel="noreferrer">Play deployed version</a>
+              <a class="pill-link" href="https://github.com/carnationcrab/last_light" target="_blank" rel="noreferrer">View source</a>
+            </div>
+          </div>
+          <div class="metric-stack">
+            <div class="metric">
+              <strong>Live</strong>
+              <span>Complete playable build</span>
+            </div>
+            <div class="metric">
+              <strong>Roguelike</strong>
+              <span>Replayable game loop</span>
+            </div>
+            <div class="metric">
+              <strong>Single page HTML</strong>
+              <span>No build step, no CDN, no dependencies</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel section" id="projects">
+      <div class="section-header">
+        <div>
+          <span class="section-label">Additional GitHub work</span>
+          <h2>Other selected works</h2>
+        </div>
+        <p>Additional projects spanning APIs, modding, developer tools, teaching code, and small technical experiments.</p>
+      </div>
+
+      <div class="project-grid">
+        <article class="project-card">
+          <div>
+            <span class="mini">API / backend</span>
+            <h3>Tome</h3>
+            <p>A full-stack worldbuilding platform with a .NET Core API, Knockout.js frontend work, and PostgreSQL persistence. Built around flexible content structures for universes, characters, and events.</p>
+            <div class="chip-row">
+              <span class="tag">C#</span>
+              <span class="tag">.NET Core</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">API design</span>
+            </div>
+          </div>
+          <div class="card-actions">
+            <a class="pill-link primary" href="https://github.com/carnationcrab/Tome" target="_blank" rel="noreferrer">Open repo</a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div>
+            <span class="mini">Modding / shipped user-facing feature</span>
+            <h3>RimWorld Pawn Task Display</h3>
+            <p>RimWorld mod that displays each pawn’s current task beneath the pawn name using Verse and Harmony integration. A compact project, but a good example of working inside an existing game's framework and shipping something people can actually use.</p>
+            <div class="chip-row">
+              <span class="tag">C#</span>
+              <span class="tag">RimWorld</span>
+              <span class="tag">Harmony</span>
+              <span class="tag">Game modding</span>
+            </div>
+          </div>
+          <div class="card-actions">
+            <a class="pill-link primary" href="https://github.com/carnationcrab/Rimworld_PawnTaskDisplay" target="_blank" rel="noreferrer">Open repo</a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div>
+            <span class="mini">Visualization / tooling</span>
+            <h3>Connection Visualizer</h3>
+            <p>Repository visualization tool that renders nodes and edges for a C++ codebase. Built as a way to inspect structure, surface dependencies, and make large code relationships easier to reason about.</p>
+            <div class="chip-row">
+              <span class="tag">JavaScript</span>
+              <span class="tag">Node</span>
+              <span class="tag">Repo analysis</span>
+              <span class="tag">Visualization</span>
+            </div>
+          </div>
+          <div class="card-actions">
+            <a class="pill-link primary" href="https://github.com/carnationcrab/ConnectionVisualizer" target="_blank" rel="noreferrer">Open repo</a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div>
+            <span class="mini">Security / Python</span>
+            <h3>stegano_saurus</h3>
+            <p>Python steganography experiment for embedding a Python program inside an image and decoding it later. Small in scope, but memorable because it explores hiding executable information inside a visual artifact.</p>
+            <div class="chip-row">
+              <span class="tag">Python</span>
+              <span class="tag">Steganography</span>
+              <span class="tag">Image processing</span>
+              <span class="tag">Security concepts</span>
+            </div>
+          </div>
+          <div class="card-actions">
+            <a class="pill-link primary" href="https://github.com/carnationcrab/stegano_saurus" target="_blank" rel="noreferrer">Open repo</a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div>
+            <span class="mini">Teaching / OOP reference</span>
+            <h3>OOP Chess</h3>
+            <p>WinForms chess project built as a teaching reference. It reflects a part of my background I value: turning software ideas into examples that other people can actually learn from.</p>
+            <div class="chip-row">
+              <span class="tag">C#</span>
+              <span class="tag">WinForms</span>
+              <span class="tag">OOP</span>
+              <span class="tag">Teaching</span>
+            </div>
+          </div>
+          <div class="card-actions">
+            <a class="pill-link primary" href="https://github.com/carnationcrab/OOP_Chess" target="_blank" rel="noreferrer">Open repo</a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div>
+            <span class="mini">Performance / experimentation</span>
+            <h3>Parallel Array Processing</h3>
+            <p>Python experiment exploring the sum of a large array through implicit parallelism. A small project, but one that reflects my ongoing curiosity about performance, computation, and where simple ideas start to scale.</p>
+            <div class="chip-row">
+              <span class="tag">Python</span>
+              <span class="tag">Parallelism</span>
+              <span class="tag">Performance</span>
+              <span class="tag">Experimentation</span>
+            </div>
+          </div>
+          <div class="card-actions">
+            <a class="pill-link primary" href="https://github.com/carnationcrab/ParallelArrayProcessing_Python" target="_blank" rel="noreferrer">Open repo</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>Sam Martorana — software engineer</p>
+    </footer>
   </div>
- </div>
-</div>
 </body>
 </html>
