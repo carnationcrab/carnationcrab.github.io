@@ -163,7 +163,7 @@
 
     .hero {
       display: grid;
-      grid-template-columns: minmax(0, 1.6fr) minmax(300px, 0.9fr);
+      grid-template-columns: 1fr;
       gap: 24px;
       margin-bottom: 24px;
     }
@@ -549,6 +549,26 @@
       border-color: rgba(127,247,194,0.18);
     }
 
+    .pill-link.disabled {
+      color: var(--muted-2);
+      background: rgba(255,255,255,0.02);
+      border-color: rgba(255,255,255,0.05);
+      opacity: 0.5;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    .card-video {
+      width: 100%;
+      height: 100%;
+      min-height: 220px;
+      object-fit: cover;
+      border-radius: 0;
+      background: #05070c;
+      border: 1px solid rgba(255,255,255,0.06);
+      display: block;
+    }
+
     .metric-stack {
       display: grid;
       gap: 12px;
@@ -709,7 +729,6 @@
       </div>
 
       <nav class="topnav" aria-label="Primary">
-        <a href="#experience">Experience</a>
         <a href="#featured">Featured Work</a>
         <a href="#projects">Projects</a>
         <a href="#contact">Links</a>
@@ -749,125 +768,6 @@
           </div>
         </div>
 
-        <div class="stats" aria-label="career summary">
-          <div class="stat">
-            <strong>6+ yrs</strong>
-            <span>professional software engineering</span>
-          </div>
-          <div class="stat">
-            <strong>Some</strong>
-            <span>public repositories on GitHub</span>
-          </div>
-          <div class="stat">
-            <strong>C#, .NET, C++</strong>
-            <span>core stack across enterprise and systems work</span>
-          </div>
-          <div class="stat">
-            <strong>Published stuff</strong>
-            <span>deployed browser games, modding, production APIs</span>
-          </div>
-        </div>
-      </article>
-
-      <aside class="panel hero-sidebar">
-        <section class="sidebar-block">
-          <span class="section-label">What I'm trying to practice</span>
-          <h2>SOLID Principles</h2>
-          <p>Clear architecture, maintainable code, practical delivery, and projects that show how I think.</p>
-        </section>
-
-        <section class="sidebar-block">
-          <span class="section-label">Core strengths</span>
-          <div class="chip-row">
-            <span class="tag">C#</span>
-            <span class="tag">ASP.NET</span>
-            <span class="tag">SQL</span>
-            <span class="tag">TypeScript</span>
-            <span class="tag">React</span>
-            <span class="tag">C++</span>
-            <span class="tag">Assembly</span>
-            <span class="tag">Azure DevOps</span>
-            <span class="tag">Game systems</span>
-          </div>
-        </section>
-
-      </aside>
-    </section>
-
-    <section class="content-grid">
-      <article class="panel section" id="experience">
-        <div class="section-header">
-          <div>
-            <span class="section-label">Professional experience</span>
-            <h2>Career history</h2>
-          </div>
-          <p>Work across enterprise platforms, consulting, instruction, and shipped software. The thread running through it is systems thinking, practical delivery, and clear technical communication.</p>
-        </div>
-
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-year">Recent</div>
-            <div>
-              <h3>Software engineering work</h3>
-              <div class="meta">Augeo</div>
-              <p>Enterprise .NET development, architecture-minded feature work, APIs, and maintainable platform code in production business environments.</p>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-year">Teaching + consulting</div>
-            <div>
-              <h3>Full Stack Development Instructor / Consultant</h3>
-              <div class="meta">Prime Digital Academy · Logisolve · Object Partners</div>
-              <p>Worked across client delivery, engineering consulting, and technical teaching. This adds a strong communication layer on top of implementation skills: explaining systems, creating reference material, and helping others reason about code.</p>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-year">Production platforms</div>
-            <div>
-              <h3>Software developer across healthcare, finance, and enterprise domains</h3>
-              <div class="meta">ConnectiveRx · Tyson Foods · Securian Financial</div>
-              <p>Built software in structured business contexts where delivery quality, maintainability, and correctness matter more than flashy demos.</p>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <article class="panel section">
-        <div class="section-header">
-          <div>
-            <span class="section-label">Working style</span>
-            <h2>How I approach software</h2>
-          </div>
-          <p>I care about software that stays understandable under pressure: clear interfaces, deliberate ownership, maintainable systems, and projects that are concrete enough to inspect rather than merely describe.</p>
-        </div>
-
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-year">01</div>
-            <div>
-              <h3>Goodish Code first</h3>
-              <p>I bias toward structure first: define the problem, establish the boundaries, and make the implementation legible before layering on convenience.</p>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-year">02</div>
-            <div>
-              <h3>Open source</h3>
-              <p>I like public projects that can be opened, played, or read directly. A runnable build or a visible codebase says more than a polished summary.</p>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-year">03</div>
-            <div>
-              <h3>Learning is doing</h3>
-              <p>I move comfortably between backend work, games, tooling, and teaching projects, but the goal is the same in each case: solve the problem cleanly and leave the system clearer than I found it.</p>
-            </div>
-          </div>
-        </div>
       </article>
     </section>
 
@@ -877,15 +777,47 @@
           <span class="section-label">Featured engineering work</span>
           <h2>Featured projects</h2>
         </div>
-        <p>A few representative projects that show the kinds of systems, tools, and interactive software I like to build.</p>
+        <p></p>
       </div>
 
       <div class="featured-grid">
         <article class="featured-card">
           <div>
+            <span class="card-kicker">Featured project / in development</span>
+            <h3>Growth</h3>
+            <p>Built as a hybrid of managed and native code: a C# front end 
+              driving the game and UI, backed by an optional C++ GDExtension that runs the simulation 
+              — procedural terrain, overworld generation, and chunk streaming. It's designed to run either 
+              against a stub sim inside the editor or the full native backend once the extension is built, 
+              which keeps the gameplay layer and the systems layer cleanly separable.</p>
+            <div class="chip-row">
+              <span class="tag">Godot</span>
+              <span class="tag">C#</span>
+              <span class="tag">C++</span>
+              <span class="tag">GDExtension</span>
+              <span class="tag">Procedural generation</span>
+              <span class="tag">Chunk streaming</span>
+              <span class="tag">Game</span>
+              <span class="tag">Systems architecture</span>
+            </div>
+            <div class="card-actions">
+              <span class="pill-link primary disabled" aria-disabled="true" title="Private repository — no public build">Play deployed version</span>
+              <span class="pill-link disabled" aria-disabled="true" title="Private repository — source not public">View source</span>
+            </div>
+          </div>
+          <video class="card-video" autoplay muted loop playsinline controls preload="metadata" poster="">
+            <source src="growth.mp4" type="video/mp4" />
+          </video>
+        </article>
+
+        <article class="featured-card">
+          <div>
             <span class="card-kicker">Featured project</span>
             <h3>Spindle</h3>
-            <p>A long-horizon C++ engine project built around runtime structure rather than visual demo polish. Spindle focuses on the foundations that make larger systems hold together: math primitives, subsystem lifecycle, custom allocators and containers, virtual file system and resource flow, and a disciplined frame loop. It is where I explore engine architecture, low-level tradeoffs, and the kind of systems work that rewards careful design over quick spectacle.</p>
+            <p>C++ engine project. Spindle is currently just foundations. 
+              Math primitives, subsystem lifecycle, custom allocators and 
+              containers, virtual file system and resource flow, and a disciplined 
+              frame loop.</p>
             <div class="chip-row">
               <span class="tag">C++</span>
               <span class="tag">Lua</span>
@@ -902,8 +834,8 @@
           </div>
           <div class="metric-stack">
             <div class="metric">
-              <strong>Long running project</strong>
-              <span>Sustained iterative development with architectural evolution</span>
+              <strong>Game Engine</strong>
+              <span></span>
             </div>
             <div class="metric">
               <strong>97.7% C++</strong>
@@ -920,12 +852,16 @@
           <div>
             <span class="card-kicker">Live game / deployed work / commission</span>
             <h3>Nova Roll</h3>
-            <p>A browser-deployed 3D marble game built around procedural courses, responsive movement, and readable moment-to-moment play. It shows my interest in turning technical ideas into something immediate, tactile, and publicly accessible.</p>
+            <p>A browser-deployed 3D marble game built around infinite procedurally
+              generated marble courses. Nova Roll had an extremely short delivery window 
+              of one weekend, and a very vague set of requirements other than hardware
+            and software limitations. I used it as an opportunity to study procedural
+          level generation and validation.</p>
             <div class="chip-row">
               <span class="tag">JavaScript</span>
               <span class="tag">Browser game</span>
               <span class="tag">Procedural generation</span>
-              <span class="tag">Interactive systems</span>
+              <span class="tag">Commission</span>
             </div>
             <div class="card-actions">
               <a class="pill-link primary" href="https://carnationcrab.github.io/nova_roll/" target="_blank" rel="noreferrer">Play deployed version</a>
@@ -935,7 +871,7 @@
           <div class="metric-stack">
             <div class="metric">
               <strong>Live</strong>
-              <span>Playable without setup</span>
+              <span></span>
             </div>
             <div class="metric">
               <strong>Gameplay systems</strong>
@@ -943,7 +879,7 @@
             </div>
             <div class="metric">
               <strong>3D as 2D, in the CPU</strong>
-              <span>No matter the constraints.</span>
+              <span>Change in requirements, no more GPU processing.</span>
             </div>
           </div>
         </article>
@@ -957,7 +893,7 @@
               <span class="tag">HTML</span>
               <span class="tag">Browser game</span>
               <span class="tag">Puzzle systems</span>
-              <span class="tag">Lightweight deployment</span>
+              <span class="tag">Lightweight</span>
             </div>
             <div class="card-actions">
               <a class="pill-link primary" href="https://carnationcrab.github.io/last_light/" target="_blank" rel="noreferrer">Play deployed version</a>
@@ -967,7 +903,7 @@
           <div class="metric-stack">
             <div class="metric">
               <strong>Live</strong>
-              <span>Complete playable build</span>
+              <span></span>
             </div>
             <div class="metric">
               <strong>Roguelike</strong>
