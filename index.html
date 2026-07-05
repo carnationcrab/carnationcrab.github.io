@@ -724,8 +724,8 @@
   <div class="site">
     <header class="topbar">
       <div class="brand">
-        <strong>Sam Martorana — Software Engineer</strong>
-        <span>C#, .NET, C++, systems design, APIs, game technology</span>
+        <!-- <strong>Sam Martorana — Software Engineer</strong> -->
+        <!-- <span>C#, .NET, C++, systems design, APIs, game technology</span> -->
       </div>
 
       <nav class="topnav" aria-label="Primary">
@@ -742,20 +742,20 @@
 
     <section class="hero">
       <article class="panel hero-main">
-        <span class="eyebrow">Software Engineer / Systems + Product-minded Builder</span>
+        <span class="eyebrow"></span>
 
         <div class="hero-grid">
           <div class="hero-copy">
-            <h1>Sam Martorana</h1>
-            <p class="lead">Software engineer specializing in C#, .NET, C++, systems architecture, APIs, and performance-minded interactive software.</p>
-            <p class="support">I build production business software, independent engine work, gameplay systems, mod tooling, and technical teaching artifacts. My strongest signal is not just breadth — it is shipping across very different environments: enterprise platforms, browser games, educational reference projects, and low-level C++ engine foundations.</p>
+            <!-- <h1>Sam Martorana</h1> -->
+            <p class="lead">I make stuff.</p>
+            <p class="support">This is some of that stuff.</p>
             <div class="card-actions">
               <a class="pill-link primary" href="https://github.com/carnationcrab" target="_blank" rel="noreferrer">View GitHub</a>
               <a class="pill-link" href="#featured">See featured work</a>
             </div>
           </div>
 
-          <div class="hero-visual" aria-hidden="true">
+          <!-- <div class="hero-visual" aria-hidden="true">
             <div class="orbit-labels">
               <span class="orbit">C# / .NET</span>
               <span class="orbit">C++ / Systems</span>
@@ -765,7 +765,7 @@
               <span class="orbit">APIs / SQL</span>
               <span class="orbit">Games / Tools</span>
             </div>
-          </div>
+          </div> -->
         </div>
 
       </article>
@@ -785,11 +785,8 @@
           <div>
             <span class="card-kicker">Featured project / in development</span>
             <h3>Growth</h3>
-            <p>Built as a hybrid of managed and native code: a C# front end 
-              driving the game and UI, backed by an optional C++ GDExtension that runs the simulation 
-              — procedural terrain, overworld generation, and chunk streaming. It's designed to run either 
-              against a stub sim inside the editor or the full native backend once the extension is built, 
-              which keeps the gameplay layer and the systems layer cleanly separable.</p>
+            <p>Simulation stuff. procedural terrain, overworld generation, 
+              and chunk streaming.</p>
             <div class="chip-row">
               <span class="tag">Godot</span>
               <span class="tag">C#</span>
@@ -832,7 +829,7 @@
               <a class="pill-link" href="https://carnationcrab.github.io/Spindle/" target="_blank" rel="noreferrer">More info</a>
             </div>
           </div>
-          <div class="metric-stack">
+          <!-- <div class="metric-stack">
             <div class="metric">
               <strong>Game Engine</strong>
               <span></span>
@@ -845,7 +842,7 @@
               <strong>Core systems</strong>
               <span>Allocators, subsystems, VFS, resources, engine loop</span>
             </div>
-          </div>
+          </div> -->
         </article>
 
         <article class="featured-card">
@@ -868,7 +865,7 @@
               <a class="pill-link" href="https://github.com/carnationcrab/nova_roll" target="_blank" rel="noreferrer">View source</a>
             </div>
           </div>
-          <div class="metric-stack">
+          <!-- <div class="metric-stack">
             <div class="metric">
               <strong>Live</strong>
               <span></span>
@@ -881,14 +878,19 @@
               <strong>3D as 2D, in the CPU</strong>
               <span>Change in requirements, no more GPU processing.</span>
             </div>
-          </div>
+          </div> -->
         </article>
 
         <article class="featured-card">
           <div>
             <span class="card-kicker">Live game / deployed work / commission</span>
             <h3>Last Light</h3>
-            <p>A browser survival puzzle project focused on atmosphere, game-state logic, and pacing. Smaller in scope than Nova Roll, but useful as a second finished piece with a different feel and a complete public build.</p>
+            <p>A browser survival puzzle project to explore game-state logic, and pacing. Smaller in scope than Nova Roll,
+              because when we evaluated the games created in our games project,
+              nova roll was by far the most demanding game to run. So, I sought to make the lightest
+              game to run. This one I tried to be a little more intentional about atmosphere than I was
+              in nova roll.
+            </p>
             <div class="chip-row">
               <span class="tag">HTML</span>
               <span class="tag">Browser game</span>
@@ -900,7 +902,7 @@
               <a class="pill-link" href="https://github.com/carnationcrab/last_light" target="_blank" rel="noreferrer">View source</a>
             </div>
           </div>
-          <div class="metric-stack">
+          <!-- <div class="metric-stack">
             <div class="metric">
               <strong>Live</strong>
               <span></span>
@@ -913,7 +915,7 @@
               <strong>Single page HTML</strong>
               <span>No build step, no CDN, no dependencies</span>
             </div>
-          </div>
+          </div> -->
         </article>
       </div>
     </section>
@@ -921,13 +923,13 @@
     <section class="panel section" id="projects">
       <div class="section-header">
         <div>
-          <span class="section-label">Additional GitHub work</span>
-          <h2>Other selected works</h2>
+          <span class="section-label">some completed projects</span>
+          <h2>Other Stuff</h2>
         </div>
       </div>
 
       <div class="project-grid">
-        <article class="project-card">
+        <!-- <article class="project-card">
           <div>
             <span class="mini">API / backend</span>
             <h3>Tome</h3>
@@ -942,13 +944,15 @@
           <div class="card-actions">
             <a class="pill-link primary" href="https://github.com/carnationcrab/Tome" target="_blank" rel="noreferrer">Open repo</a>
           </div>
-        </article>
+        </article> -->
 
         <article class="project-card">
           <div>
             <span class="mini">Modding / shipped user-facing feature</span>
-            <h3>RimWorld Pawn Task Display</h3>
-            <p>RimWorld mod that displays each pawn’s current task beneath the pawn name using Verse and Harmony integration. A compact project, but a good example of working inside an existing game's framework and shipping something people can actually use.</p>
+            <h3>RimWorld Mods</h3>
+            <p>I spend too much time making rimworld mods. QOL, HUD, Ecology
+              Mods, relationship mods, speech mods.
+            </p>
             <div class="chip-row">
               <span class="tag">C#</span>
               <span class="tag">RimWorld</span>
@@ -956,9 +960,9 @@
               <span class="tag">Game modding</span>
             </div>
           </div>
-          <div class="card-actions">
-            <a class="pill-link primary" href="https://github.com/carnationcrab/Rimworld_PawnTaskDisplay" target="_blank" rel="noreferrer">Open repo</a>
-          </div>
+          <!-- <div class="card-actions">
+            <a class="pill-link primary" href="https://github.com/carnationcrab/Rimworld_PawnTaskDisplay" target="_blank" rel="noreferrer">Open repo of my first ever game mod</a>
+          </div> -->
         </article>
 
         <article class="project-card">
@@ -982,12 +986,13 @@
           <div>
             <span class="mini">Security / Python</span>
             <h3>stegano_saurus</h3>
-            <p>Python steganography experiment for embedding a Python program inside an image and decoding it later. Small in scope, but memorable because it explores hiding executable information inside a visual artifact.</p>
+            <p>Python steganography project made for my final project in Intro to Computer
+              Science. It embeds a Python script inside an image and decodes it later.
+            Doesn't run it or anything.</p>
             <div class="chip-row">
               <span class="tag">Python</span>
               <span class="tag">Steganography</span>
               <span class="tag">Image processing</span>
-              <span class="tag">Security concepts</span>
             </div>
           </div>
           <div class="card-actions">
@@ -995,11 +1000,11 @@
           </div>
         </article>
 
-        <article class="project-card">
+        <!-- <article class="project-card">
           <div>
             <span class="mini">Teaching / OOP reference</span>
             <h3>OOP Chess</h3>
-            <p>WinForms chess project built as a teaching reference. It reflects a part of my background I value: turning software ideas into examples that other people can actually learn from.</p>
+            <p>WinForms chess project built as a teaching reference.</p>
             <div class="chip-row">
               <span class="tag">C#</span>
               <span class="tag">WinForms</span>
@@ -1010,13 +1015,14 @@
           <div class="card-actions">
             <a class="pill-link primary" href="https://github.com/carnationcrab/OOP_Chess" target="_blank" rel="noreferrer">Open repo</a>
           </div>
-        </article>
+        </article> -->
 
         <article class="project-card">
           <div>
             <span class="mini">Performance / experimentation</span>
-            <h3>Parallel Array Processing</h3>
-            <p>Python experiment exploring the sum of a large array through implicit parallelism. A small project, but one that reflects my ongoing curiosity about performance, computation, and where simple ideas start to scale.</p>
+            <h3>Random Math</h3>
+            <p>Lots of random code snippets, like:
+              This python experiment exploring the sum of a large array through implicit parallelism.</p>
             <div class="chip-row">
               <span class="tag">Python</span>
               <span class="tag">Parallelism</span>
@@ -1032,7 +1038,7 @@
     </section>
 
     <footer class="footer">
-      <p>Sam Martorana — software engineer</p>
+      <p>tell your dog I said hi</p>
     </footer>
   </div>
 </body>
